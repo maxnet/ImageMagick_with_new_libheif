@@ -444,6 +444,10 @@ jobs:
         run: |
           set -e
           export DEBIAN_FRONTEND=noninteractive
+          apt update -y
+          apt install -y software-properties-common
+          add-apt-repository -y ppa:strukturag/libde265
+          add-apt-repository -y ppa:strukturag/libheif
           apt-get update -y
           apt-get install -y autoconf curl file fuse git kmod squashfs-tools libbz2-dev libdjvulibre-dev libfontconfig-dev libfreetype6-dev libfribidi-dev libharfbuzz-dev libheif-dev liblcms-dev libopenexr-dev libopenjp2-7-dev libturbojpeg0-dev liblqr-dev libraqm-dev libtiff-dev libwebp-dev libx11-dev libxml2-dev liblzma-dev make software-properties-common wget ${{matrix.packages}}
 
